@@ -1,0 +1,11 @@
+- name: add group
+  group:
+    name: manager
+    state: present
+
+
+- name: add ravi primary  member manager
+  user:
+    name: ravi
+    group: manager
+    state: present

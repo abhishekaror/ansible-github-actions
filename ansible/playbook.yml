@@ -1,0 +1,32 @@
+- name: Deploying Web  Server
+  hosts: web 
+  tasks:
+  - name: Creating directory /tmp/data
+    file:
+        path: /tmp/data
+        state: directory
+
+  - name: copy /etc/fstab  into /tmp/data
+    copy:
+        src: /etc/fstab
+        dest: /tmp/data 
+  - import_tasks: fw.yml
+    
+
+
+
+- name: This deploying dev server
+  hosts: dev
+  tasks:
+  - name: Start crond service
+    service:
+        name: crond
+        state: started
+
+  - name: Install ftp vsftpd
+    yum:
+        name: 
+         - ftp
+         - vsftpd
+        state: installed
+  - import_tasks: fw.yml
