@@ -1,5 +1,5 @@
 - name: Deploying Web  Server
-  hosts: web 
+  hosts: webserver
   tasks:
   - name: Creating directory /tmp/data
     file:
