@@ -3,8 +3,7 @@
     name: manager
     state: present
 
-
-- name: add ravi primary  member manager
+- name: add ravi primary member manager
   user:
     name: ravi
     group: manager
