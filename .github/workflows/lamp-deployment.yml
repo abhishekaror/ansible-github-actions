@@ -10,10 +10,10 @@ jobs:
 
       steps: 
       - name: checkout-source
-        uses: action\checkout@v2
+        uses: action/checkout@v2
 
       - name: Linting
-        uses: ansible\ansible-lint-action@81aa61b
+        uses: ansible/ansible-lint-action@81aa61b
 # add paramenter to linitng action
         with:
           targets: |
