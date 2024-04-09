@@ -2,32 +2,34 @@
   hosts: webserver
   tasks:
     - name: Creating directory /tmp/data
-      file:
+      ansible.builtin.file:
         path: /tmp/data
         state: directory
+        mode: '0755'
 
     - name: Copy /etc/fstab into /tmp/data
-      copy:
+      ansible.builtin.copy:
         src: /etc/fstab
         dest: /tmp/data
+        mode: '0644'
 
     - name: Include tasks from fw.yml
       ansible.builtin.import_tasks: fw.yml
 
-- name: Deploying dev server
+- name: Deploying Dev Server
   hosts: dev
   tasks:
     - name: Start crond service
-      service:
+      ansible.builtin.service:
         name: crond
         state: started
 
-    - name: Install ftp vsftpd
-      yum:
+    - name: Install ftp and vsftpd
+      ansible.builtin.yum:
         name:
           - ftp
           - vsftpd
         state: installed
-
     - name: Include tasks from fw.yml
       ansible.builtin.import_tasks: fw.yml
+
