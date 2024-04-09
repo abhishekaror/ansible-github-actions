@@ -32,4 +32,3 @@
         state: installed
     - name: Include tasks from fw.yml
       ansible.builtin.import_tasks: fw.yml
-
