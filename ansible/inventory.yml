@@ -1,5 +1,5 @@
- webserver:
-   hosts:
-      localhost
-   vars:
-      ansible-user: ansible             
+webserver:
+  hosts:
+    localhost
+  vars:
+    ansible-user: ansible             
