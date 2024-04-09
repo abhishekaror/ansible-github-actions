@@ -1,10 +1,10 @@
-- name: add group
-  group:
+- name: Add group
+  ansible.builtin.group:
     name: manager
     state: present
 
-- name: add ravi primary member manager
-  user:
+- name: Add ravi primary member manager
+  ansible.builtin.user:
     name: ravi
     group: manager
     state: present
