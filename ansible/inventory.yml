@@ -2,4 +2,4 @@ webserver:
   hosts:
     localhost
   vars:
-    ansible-user: ansible             
+    ansible-user: ansible
