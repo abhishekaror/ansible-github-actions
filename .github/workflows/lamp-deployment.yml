@@ -11,14 +11,10 @@ jobs:
     steps:
       - name: checkout-source
         uses: actions/checkout@v2
-        
       - name: run-ansible-lint
         uses: ansible/ansible-lint@v24.2.1
-            
         with:
           targets: |
             ansible/playbook.yml
-            ansible/fw.yml
+            ansible/Fw.yml
             ansible/inventory.yml
-
-            
