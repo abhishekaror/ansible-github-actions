@@ -1,22 +1,23 @@
 name: LAMP Deployment
-# specify trigger 
-on: 
-   workflow_dispatch:
+
+on:
+  workflow_dispatch:
 
 jobs:
-   linting:
-      name: Lint Ansible files
-      runs-on: ubuntu-latest
+  linting:
+    name: Lint Ansible files
+    runs-on: ubuntu-latest
 
-      steps: 
+    steps:
       - name: checkout-source
-        uses: action/checkout@v2
-
-      - name: Linting
-        uses: ansible/ansible-lint-action@81aa61b
-# add paramenter to linitng action
+        uses: actions/checkout@v2
+        
+      - name: run-ansible-lint
+        uses: ansible/ansible-lint@v24.2.1
+            
         with:
           targets: |
-             ansible/playbook.yml
-             ansible/inventory.yml
+            ansible/playbook.yml
+            ansible/inventory.yml
+
             
